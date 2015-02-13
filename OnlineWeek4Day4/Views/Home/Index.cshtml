@@ -1,0 +1,21 @@
+﻿@model List<OnlineWeek4Day4.Models.Movie>
+
+<br />
+@foreach (var movie in Model)
+{
+    <div class="well">
+        <div class="row">
+            <div class="col-sm-3">
+                <img src="@movie.ImageUrl" class="img-responsive img-rounded" style="max-height: 15%; width: auto;" />
+            </div>
+            <div class="col-sm-9">
+                <h2>@movie.Name</h2>
+                <h3>@movie.Year | @movie.FilmRating</h3>
+                @Html.ActionLink("Delete", "DeleteMovie", new { id = movie.Id }, new { @class = "btn btn-danger" })
+                @Html.ActionLink("Edit", "EditMovie", new { id = movie.Id }, new { @class = "btn btn-warning" })
+            </div>
+        </div>
+    </div>
+}
+
+@Html.ActionLink("Add Movie", "AddMovie", null, new { @class = "btn btn-lg btn-success" })

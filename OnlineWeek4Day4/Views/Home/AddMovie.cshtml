@@ -1,0 +1,23 @@
+﻿@model OnlineWeek4Day4.Models.Movie
+
+<h2>AddMovie</h2>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+    @Html.LabelFor(x => x.Name)
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" }) <br />
+    @Html.LabelFor(x => x.Year)
+    @Html.TextBoxFor(x => x.Year, new { @class = "form-control" }) <br />
+    @Html.LabelFor(x => x.ImageUrl)
+    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" }) <br />
+    @Html.LabelFor(x => x.FilmRating)
+    <select name="FilmRating" class="form-control">
+        <option value="G">G</option>
+        <option value="PG">PG</option>
+        <option value="PG13">PG-13</option>
+        <option value="R">R</option>
+        <option value="NC17">NC-17</option>
+    </select>
+    @Html.HiddenFor(x => x.Id, new { @readonly = "readonly" })
+    <button type="submit" class="btn btn-primary">Submit</button>
+}
